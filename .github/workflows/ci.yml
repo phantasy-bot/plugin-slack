@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+
+      - name: Verify package metadata
+        run: |
+          test "$(node -p "require('./package.json').name")" = "@phantasy/plugin-slack"
+          test "$(node -p "require('./package.json').version")" != ""
+
+      - name: Verify publish artifacts
+        run: |
+          test -f dist/index.js
+          test -f dist/index.d.ts
+
+      - name: Run package dry run
+        run: npm pack --dry-run
+

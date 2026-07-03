@@ -1,0 +1,113 @@
+{
+  "slug": "plugin-slack",
+  "packageName": "@phantasy/plugin-slack",
+  "displayName": "Slack",
+  "description": "Slack messaging integration plugin for Phantasy.",
+  "workspace": "business",
+  "extensionKind": "integration",
+  "category": "messaging",
+  "tags": [
+    "slack",
+    "messaging",
+    "chat",
+    "bot"
+  ],
+  "permissions": [
+    "internet"
+  ],
+  "dependencies": [],
+  "visibility": "private",
+  "repoUrl": "https://github.com/phantasy-bot/plugin-slack",
+  "sourceOfTruth": "monorepo",
+  "sourceOwner": "monorepo",
+  "sourcePayload": "source-extract",
+  "syncMode": "source-extract",
+  "phase": "source-extracted",
+  "sourceExtract": {
+    "packageDependencies": {
+      "@chat-adapter/slack": "^4.32.0",
+      "@slack/web-api": "^7.18.0",
+      "@slack/socket-mode": "^2.0.0"
+    },
+    "files": [
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/index.ts",
+        "targetPath": "src/index.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/slack-plugin.ts",
+        "targetPath": "src/slack-plugin.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/slack-plugin-endpoints.ts",
+        "targetPath": "src/slack-plugin-endpoints.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/slack-integration.ts",
+        "targetPath": "src/slack-integration.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/runtime/slack-bot-service.ts",
+        "targetPath": "src/runtime/slack-bot-service.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/runtime/slack-thread-helpers.ts",
+        "targetPath": "src/runtime/slack-thread-helpers.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/runtime/config-helpers.ts",
+        "targetPath": "src/runtime/config-helpers.ts"
+      },
+      {
+        "sourcePath": "src/first-party-plugins/plugin-slack/runtime/slack-plugin-config.ts",
+        "targetPath": "src/runtime/slack-plugin-config.ts"
+      }
+    ]
+  },
+  "repoExists": true,
+  "npmPublished": false,
+  "runtimeLoadMode": "git",
+  "monorepoPackageStatus": "removed",
+  "phantasy": {
+    "displayName": "Slack",
+    "category": "messaging",
+    "tags": [
+      "slack",
+      "messaging",
+      "chat",
+      "bot"
+    ],
+    "workspace": "business",
+    "extensionKind": "integration",
+    "permissions": [
+      "internet"
+    ],
+    "pluginDependencies": [],
+    "platforms": [
+      "node"
+    ],
+    "productionReady": false,
+    "adminSurface": {
+      "tabId": "slack",
+      "label": "Slack",
+      "workspace": "business",
+      "kind": "generic",
+      "keywords": [
+        "slack",
+        "messaging",
+        "chat",
+        "bot"
+      ]
+    },
+    "configSchema": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "exportedAt": "2026-07-03T03:20:02.638Z"
+}

@@ -1,0 +1,7 @@
+Phantasy Agent uses a dual-license model. See LICENSES/README.md for the path map.
+
+The default license for the core runtime, server, Convex backend, admin UI, and
+CLI in this repository is FSL-1.1-Apache-2.0 (LICENSE-FSL-1.1).
+
+Examples, templates, starter projects, and selected SDK packages are MIT
+(LICENSE-MIT).

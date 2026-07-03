@@ -1,0 +1,41 @@
+{
+  "name": "@phantasy/plugin-slack",
+  "version": "0.1.0-beta",
+  "description": "Slack messaging integration plugin for Phantasy.",
+  "displayName": "Slack",
+  "main": "./dist/index.js",
+  "workspace": "business",
+  "extensionKind": "integration",
+  "category": "messaging",
+  "tags": [
+    "slack",
+    "messaging",
+    "chat",
+    "bot"
+  ],
+  "permissions": [
+    "internet"
+  ],
+  "dependencies": [],
+  "adminSurface": {
+    "tabId": "slack",
+    "label": "Slack",
+    "workspace": "business",
+    "kind": "generic",
+    "keywords": [
+      "slack",
+      "messaging",
+      "chat",
+      "bot"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  }
+}

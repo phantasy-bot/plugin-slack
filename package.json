@@ -1,0 +1,99 @@
+{
+  "name": "@phantasy/plugin-slack",
+  "version": "0.1.0-beta",
+  "private": true,
+  "description": "Slack messaging integration plugin for Phantasy.",
+  "license": "FSL-1.1-Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "phantasy.plugin.json"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "slack",
+    "messaging",
+    "chat",
+    "bot"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phantasy-bot/plugin-slack"
+  },
+  "homepage": "https://github.com/phantasy-bot/plugin-slack",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@phantasy/agent": "^0.1.0-beta"
+  },
+  "peerDependenciesMeta": {
+    "@phantasy/agent": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@chat-adapter/slack": "^4.32.0",
+    "@slack/web-api": "^7.18.0",
+    "@slack/socket-mode": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.2"
+  },
+  "phantasy": {
+    "displayName": "Slack",
+    "category": "messaging",
+    "tags": [
+      "slack",
+      "messaging",
+      "chat",
+      "bot"
+    ],
+    "workspace": "business",
+    "extensionKind": "integration",
+    "permissions": [
+      "internet"
+    ],
+    "pluginDependencies": [],
+    "platforms": [
+      "node"
+    ],
+    "productionReady": false,
+    "adminSurface": {
+      "tabId": "slack",
+      "label": "Slack",
+      "workspace": "business",
+      "kind": "generic",
+      "keywords": [
+        "slack",
+        "messaging",
+        "chat",
+        "bot"
+      ]
+    },
+    "configSchema": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
+}
