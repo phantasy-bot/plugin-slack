@@ -1,5 +1,6 @@
 import type { SlackConfig } from "./slack-integration";
 import type { SlackPlugin } from "./slack-plugin";
+import type { PluginConfig } from "@phantasy/agent/plugins";
 
 function jsonResponse(body: unknown, status: number = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -44,7 +45,7 @@ export async function handleSlackPluginEndpoint(
   if (path === "/start" && request.method === "POST") {
     const body = await request.json().catch(() => ({}));
     if (body && typeof body === "object" && "config" in body) {
-      await plugin.updateConfig((body as { config: Record<string, unknown> }).config);
+      await plugin.updateConfig((body as { config: Partial<PluginConfig> }).config);
     }
 
     const result = await plugin.startBot();

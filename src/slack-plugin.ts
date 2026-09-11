@@ -9,6 +9,7 @@ import {
   getPluginRuntimeEnv,
   type ServerEnv,
 } from "@phantasy/agent/plugin-runtime";
+type AgentConfig = Parameters<BasePlugin["onInit"]>[0];
 
 import { handleSlackPluginEndpoint } from "./slack-plugin-endpoints";
 import { SlackIntegration, type SlackConfig } from "./slack-integration";
@@ -100,7 +101,7 @@ export class SlackPlugin extends BasePlugin implements PlatformCapability {
   }
 
   override async onInit(
-    _agentConfig: Record<string, unknown>,
+    _agentConfig: AgentConfig,
     config?: SlackPluginConfig,
   ): Promise<void> {
     await super.onInit(_agentConfig, config);

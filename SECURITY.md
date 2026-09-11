@@ -14,7 +14,7 @@ security vulnerability, please report it to us responsibly.
 
 ### Please do NOT:
 
-- Open a public issue on GitHub
+- Open a public issue on Forgejo or GitHub
 - Disclose the vulnerability publicly before it has been addressed
 - Exploit the vulnerability beyond proof-of-concept
 
@@ -66,10 +66,10 @@ When using Phantasy:
    - Shared/public `developer-tools` exposure should require `PHANTASY_ALLOW_SHARED_DEVELOPER_TOOLS=true` in addition to the normal advanced-module opt-in
    - Treat `Developer`, `Workbench`, and `Test` as operator-only surfaces, not shared tenant UI
 
-3. **Database**
-   - Use SSL/TLS connections in production
-   - Enable connection pooling
-   - Use prepared statements to prevent SQL injection
+3. **Convex system storage**
+   - Set a dedicated `PHANTASY_CONVEX_DEPLOY_SECRET` on both the host and the Convex deployment; do not reuse the workflow API key as the deploy secret in production
+   - Keep operator JWKS (`JWKS` / `CONVEX_SITE_URL`) on the host so Convex Auth password login can verify tokens
+   - Use `PHANTASY_WORKFLOW_API_KEY` only for Convex→host machine callbacks, not as a client or integration API key
 
 4. **API Keys**
    - Store API keys securely (use environment variables or secret management)
@@ -85,11 +85,11 @@ When using Phantasy:
 
 Phantasy includes several security features:
 
-- JWT-based authentication
-- OAuth provider support (GitHub, GitLab)
+- Convex Auth password login for the operator shell
+- Project source control integrations (Forgejo and GitHub) — not the admin door
 - Rate limiting and account lockout
 - Bcrypt password hashing
-- SSL/TLS database connections
+- Deploy-secret gated host→Convex writes
 - Input validation and sanitization
 - CORS configuration and per-integration origin checks
 - Security headers on all responses
@@ -98,4 +98,5 @@ Phantasy includes several security features:
 ## Contact
 
 - **Security issues**: security@phantasy.bot
+- **Conduct**: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - **General product or docs issues**: Use [Reporting Issues](https://docs.phantasy.bot/maintenance/reporting-issues)

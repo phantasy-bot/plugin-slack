@@ -1,6 +1,6 @@
 {
   "name": "@phantasy/plugin-slack",
-  "version": "0.1.0-beta",
+  "version": "0.1.17-beta",
   "description": "Slack messaging integration plugin for Phantasy.",
   "displayName": "Slack",
   "main": "./dist/index.js",

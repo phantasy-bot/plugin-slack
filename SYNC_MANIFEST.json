@@ -55,6 +55,10 @@
         "targetPath": "src/runtime/slack-thread-helpers.ts"
       },
       {
+        "sourcePath": "src/first-party-plugins/plugin-slack/runtime/slack-thread-helpers.test.ts",
+        "targetPath": "src/runtime/slack-thread-helpers.test.ts"
+      },
+      {
         "sourcePath": "src/first-party-plugins/plugin-slack/runtime/config-helpers.ts",
         "targetPath": "src/runtime/config-helpers.ts"
       },
@@ -109,5 +113,5 @@
       }
     }
   },
-  "exportedAt": "2026-07-03T03:20:02.638Z"
+  "exportedAt": "2026-09-11T21:58:05.129Z"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@phantasy/plugin-slack",
-  "version": "0.1.0-beta",
+  "version": "0.1.17-beta",
   "private": true,
   "description": "Slack messaging integration plugin for Phantasy.",
   "license": "FSL-1.1-Apache-2.0",
@@ -38,7 +38,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@phantasy/agent": "^0.1.0-beta"
+    "@phantasy/agent": "^0.1.17-beta"
   },
   "peerDependenciesMeta": {
     "@phantasy/agent": {

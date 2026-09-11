@@ -82,7 +82,7 @@ function normalizeSlackConfig(config: Partial<SlackConfig>): SlackConfig {
   };
 }
 
-function getSlackIntegrationConfig(agent: unknown): Partial<SlackConfig> | undefined {
+function getSlackIntegrationConfig(agent: unknown): SlackConfig | undefined {
   const integrations = getNestedRecord(agent, "integrations");
   const slack = getNestedRecord(integrations, "slack");
   if (Object.keys(slack).length === 0) {
@@ -149,15 +149,12 @@ export class SlackIntegration {
     botInfo?: { id?: string; user?: string; team?: string };
   }> {
     try {
-      const response = await fetchWithTimeout(
-        "https://slack.com/api/auth.test",
-        {
-          headers: {
-            Authorization: `Bearer ${config.botToken}`,
-          },
+      const response = await fetchWithTimeout("https://slack.com/api/auth.test", {
+        headers: {
+          Authorization: `Bearer ${config.botToken}`,
         },
-        10_000,
-      );
+        timeout: 10_000,
+      });
 
       const payload = (await response.json()) as {
         ok?: boolean;

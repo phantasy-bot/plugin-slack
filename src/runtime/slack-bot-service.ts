@@ -7,6 +7,7 @@ import {
   type PlatformConversationBridgeInboundEvent,
   type ServerEnv,
 } from "@phantasy/agent/plugin-runtime";
+import type { Adapter } from "chat";
 
 import type { SlackConfig } from "../slack-integration";
 import { buildSlackGatewayThreadId, normalizeSlackId } from "./slack-thread-helpers";
@@ -130,7 +131,7 @@ export class SlackBotService {
           botUserId: this.config.botUserId,
           userName: this.config.username || "phantasy-slack",
           mode: this.config.mode,
-        }) as never;
+        }) as Adapter;
       },
       normalizeInboundMessage: (event) => this.normalizeInboundMessage(event),
       onStart: async (bridge) => {
